@@ -13,7 +13,7 @@ require 'pry'
 
 image_links = []
 
-doc = HTTParty.get("https://digitalcollections.nypl.org/collections/lane/photography-collections")
+doc = HTTParty.get("https://digitalcollections.nypl.org/search/index?filters%5Brights%5D%5B%5D=pd&filters%5Btype%5D=still+image&keywords=#")
 parsed_categories_page = Nokogiri::HTML(doc)
 category_links = parsed_categories_page.css('.grid-items').css('.grid-item').map{|category| category.attribute('href')}
 
